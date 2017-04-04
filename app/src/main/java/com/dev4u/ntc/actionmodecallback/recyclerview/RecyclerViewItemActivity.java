@@ -7,6 +7,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -21,7 +22,7 @@ public class RecyclerViewItemActivity extends AppCompatActivity implements Actio
     private List<Item> itemList = new ArrayList<>();
     private RecyclerView recyclerView;
     private RecyclerViewAdapter mAdapter;
-//    private ActionMode mActionMode;
+    private ActionMode mActionMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,9 @@ public class RecyclerViewItemActivity extends AppCompatActivity implements Actio
     }
 
     private void initView() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
         for (int i = 1; i < 20; i++) {
@@ -75,7 +79,7 @@ public class RecyclerViewItemActivity extends AppCompatActivity implements Actio
         if (count == 0) {
             mActionMode.finish();
         } else {
-            mActionMode.setTitle(String.valueOf(count));
+            mActionMode.setTitle(String.valueOf(count) + " selected");
             mActionMode.invalidate();
         }
     }
@@ -115,5 +119,14 @@ public class RecyclerViewItemActivity extends AppCompatActivity implements Actio
                 mAdapter.notifyDataSetChanged();
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

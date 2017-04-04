@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -10,10 +10,9 @@
         <item name="windowActionModeOverlay">true</item>
         <item name="android:actionModeBackground">@color/colorPrimaryDark</item>
     </style>
-    <!-- Base application theme. -->
-    <style name="AppThemes" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
 
+    <style name="MyTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
         <item name="android:windowDisablePreview">true</item>
         <item name="windowActionBar">false</item>
         <item name="android:textColorPrimary">@android:color/white</item>
@@ -26,9 +25,12 @@
 
         <!--  It should be true otherwise action mode will not overlay toolbar -->
         <item name="windowActionModeOverlay">true</item>
-
         <!--  For Custom Action Mode Background Color/Drawable -->
         <item name="actionModeBackground">@color/colorAccent</item>
 
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

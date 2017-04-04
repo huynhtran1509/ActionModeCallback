@@ -103,16 +103,18 @@ public class ListViewAdapter extends BaseAdapter {
     }
 
     public void deleteItems() {
-        SparseBooleanArray selected = getSelectedIds();//Get selected ids
+        //Get selected ids
+        SparseBooleanArray selected = getSelectedIds();
         //Loop all selected ids
         for (int i = (selected.size() - 1); i >= 0; i--) {
             if (selected.valueAt(i)) {
                 //If current id is selected remove the item via key
                 itemList.remove(selected.keyAt(i));
-                notifyDataSetChanged();//notify adapter
+                //notify adapter
+                notifyDataSetChanged();
             }
         }
-        Toast.makeText(context, selected.size() + " item deleted.", Toast.LENGTH_SHORT).show();//Show Toast
+        Toast.makeText(context, selected.size() + " item deleted.", Toast.LENGTH_SHORT).show();
     }
 
     public static class ViewHolder {

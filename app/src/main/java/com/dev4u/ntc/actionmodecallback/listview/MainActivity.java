@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     private void initView() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         lvActionMode = (ListView) findViewById(R.id.lvActionMode);
         itemList = new ArrayList<>();
 
@@ -78,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         if (count == 0) {
             mActionMode.finish();
         } else {
-            mActionMode.setTitle(String.valueOf(count));
+            mActionMode.setTitle(String.valueOf(count) + " selected");
             mActionMode.invalidate();
         }
     }

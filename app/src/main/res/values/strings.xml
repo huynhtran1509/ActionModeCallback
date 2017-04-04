@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">ActionMode Callback</string>
+    <string name="app_name">ActionMode</string>
     <string name="delete_a_item">Delete a Item?</string>
 </resources>
